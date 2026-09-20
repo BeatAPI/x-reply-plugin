@@ -1,0 +1,11 @@
+# extension
+.output
+.wxt
+
+node_modules
+.env
+.env.local
+.DS_Store
+
+# Kept locally only as migration reference; not part of this extension.
+legacy-submit-agent/

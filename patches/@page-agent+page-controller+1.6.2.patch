@@ -1,0 +1,28 @@
+diff --git a/node_modules/@page-agent/page-controller/dist/lib/page-controller.js b/node_modules/@page-agent/page-controller/dist/lib/page-controller.js
+index 239126c..d2a55d0 100644
+--- a/node_modules/@page-agent/page-controller/dist/lib/page-controller.js
++++ b/node_modules/@page-agent/page-controller/dist/lib/page-controller.js
+@@ -1998,19 +1998,10 @@ ${scrollHintAbove}`;
+    * Execute arbitrary JavaScript on the page
+    */
+   async executeJavascript(script) {
+-    try {
+-      const asyncFunction = eval(`(async () => { ${script} })`);
+-      const result = await asyncFunction();
+-      return {
+-        success: true,
+-        message: `✅ Executed JavaScript. Result: ${result}`
+-      };
+-    } catch (error) {
+-      return {
+-        success: false,
+-        message: `❌ Error executing JavaScript: ${error}`
+-      };
+-    }
++    return {
++      success: false,
++      message: "executeJavascript is disabled in this extension."
++    };
+   }
+   // ======= Mask Operations =======
+   /**

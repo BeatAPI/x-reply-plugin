@@ -1,0 +1,233 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-background: #f5f2e9;
+	--color-foreground: #171713;
+	--color-muted: #ece8dc;
+	--color-muted-foreground: #777468;
+	--color-border: #dcd6c8;
+	--color-primary: #d69217;
+	--color-primary-foreground: #17130b;
+	--color-destructive: #c84b3a;
+	--color-destructive-foreground: #ffffff;
+	--color-success: #27845f;
+	--color-success-foreground: #ffffff;
+	--color-warning: #d69217;
+	--color-warning-foreground: #17130b;
+	--color-card: #fffdf7;
+	--color-card-foreground: #171713;
+	--color-popover: #fffdf7;
+	--color-popover-foreground: #171713;
+	--color-accent: #f8e9bd;
+	--radius-sm: 0.35rem;
+	--radius-md: 0.6rem;
+	--radius-lg: 0.85rem;
+	--radius-xl: 1.1rem;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 340px; background: var(--color-background); }
+
+body {
+	margin: 0;
+	background:
+		radial-gradient(circle at 100% 0%, rgba(214, 146, 23, 0.09), transparent 34%),
+		var(--color-background);
+	color: var(--color-foreground);
+	font-family: 'Avenir Next', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea { font: inherit; }
+
+.signal-grid {
+	background-image:
+		linear-gradient(rgba(23, 23, 19, 0.025) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(23, 23, 19, 0.025) 1px, transparent 1px);
+	background-size: 18px 18px;
+}
+
+.brand-mark {
+	display: grid;
+	height: 34px;
+	width: 34px;
+	place-items: center;
+	border: 1px solid #171713;
+	border-radius: 10px 10px 10px 3px;
+	background: #171713;
+	color: #f6b935;
+	font-family: 'Iowan Old Style', Georgia, serif;
+	font-size: 20px;
+	font-weight: 700;
+	box-shadow: 3px 3px 0 #d69217;
+}
+
+.eyebrow {
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: 0.19em;
+	color: var(--color-muted-foreground);
+}
+
+.icon-button {
+	display: grid;
+	height: 34px;
+	width: 34px;
+	place-items: center;
+	border: 1px solid var(--color-border);
+	border-radius: 10px;
+	background: rgba(255, 253, 247, 0.78);
+	color: var(--color-foreground);
+	cursor: pointer;
+	transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.icon-button:hover { transform: translateY(-1px); border-color: #b8ae9c; background: #fffdf7; }
+.icon-button:active { transform: translateY(0); }
+
+.paper-panel {
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: rgba(255, 253, 247, 0.92);
+	box-shadow: 0 9px 26px rgba(58, 48, 26, 0.055);
+}
+
+.status-dot {
+	height: 8px;
+	width: 8px;
+	flex: none;
+	border-radius: 999px;
+	background: #d69217;
+	box-shadow: 0 0 0 4px rgba(214, 146, 23, 0.12);
+}
+.status-dot.is-online { background: #27845f; box-shadow: 0 0 0 4px rgba(39, 132, 95, 0.12); }
+
+.account-pill, .fit-pill {
+	white-space: nowrap;
+	border: 1px solid #e4c56d;
+	border-radius: 999px;
+	background: #fff7d9;
+	padding: 4px 8px;
+	font-size: 9px;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	color: #8b5b08;
+}
+.account-pill.is-match { border-color: #a9d8c4; background: #e8f6ef; color: #1c6b4d; }
+
+.mono-label {
+	font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+	font-size: 9px;
+	letter-spacing: 0.04em;
+	color: var(--color-muted-foreground);
+}
+
+.meta-chip {
+	border: 1px solid var(--color-border);
+	border-radius: 999px;
+	background: var(--color-muted);
+	padding: 3px 7px;
+	font-size: 9px;
+	color: var(--color-muted-foreground);
+}
+
+.spark-box {
+	display: grid;
+	height: 34px;
+	width: 34px;
+	flex: none;
+	place-items: center;
+	border: 1px solid #e6c56b;
+	border-radius: 10px;
+	background: #fff1c9;
+	color: #8d5d08;
+}
+
+.reply-card {
+	border: 1px solid var(--color-border);
+	border-radius: 15px;
+	background: rgba(255, 253, 247, 0.88);
+	box-shadow: 0 7px 22px rgba(58, 48, 26, 0.04);
+	transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.reply-card.is-selected {
+	border-color: #d69217;
+	box-shadow: 0 0 0 2px rgba(214, 146, 23, 0.12), 0 10px 26px rgba(58, 48, 26, 0.07);
+	transform: translateY(-1px);
+}
+
+.version-index {
+	font-family: 'Iowan Old Style', Georgia, serif;
+	font-size: 19px;
+	font-weight: 700;
+	color: #b17a16;
+}
+
+.selection-ring {
+	display: grid;
+	height: 20px;
+	width: 20px;
+	place-items: center;
+	border: 1px solid var(--color-border);
+	border-radius: 999px;
+	color: #171713;
+}
+.selection-ring.is-selected { border-color: #d69217; background: #f6b935; }
+
+.fit-strong { border-color: #a9d8c4; background: #e8f6ef; color: #1c6b4d; }
+.fit-possible { border-color: #e4c56d; background: #fff7d9; color: #8b5b08; }
+.fit-weak { border-color: #e6c2b9; background: #fff0ec; color: #9a4032; }
+
+.provider-button {
+	height: 42px;
+	border: 1px solid var(--color-border);
+	border-radius: 10px;
+	background: var(--color-card);
+	font-size: 12px;
+	font-weight: 700;
+	cursor: pointer;
+}
+.provider-button.is-active { border-color: #d69217; background: #171713; color: #f6b935; }
+
+.product-switch-button {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1px;
+	border: 1px solid transparent;
+	border-radius: 9px;
+	background: transparent;
+	padding: 8px 9px;
+	color: var(--color-foreground);
+	cursor: pointer;
+	transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+}
+.product-switch-button:hover { background: var(--color-muted); }
+.product-switch-button:active { transform: translateY(1px); }
+.product-switch-button:disabled { cursor: wait; opacity: 0.68; }
+.product-switch-button.is-active {
+	border-color: #d69217;
+	background: #171713;
+	color: #f6b935;
+}
+.product-switch-button span { font-size: 12px; font-weight: 800; }
+.product-switch-button small {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 8px;
+	color: var(--color-muted-foreground);
+}
+.product-switch-button.is-active small { color: rgba(255, 239, 189, 0.72); }
+
+.fade-up { animation: fade-up 260ms ease-out both; }
+@keyframes fade-up {
+	from { opacity: 0; transform: translateY(5px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

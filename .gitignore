@@ -9,3 +9,7 @@ node_modules
 
 # Kept locally only as migration reference; not part of this extension.
 legacy-submit-agent/
+
+# Private growth catalogue and machine-local notes
+local/
+extension-dist/

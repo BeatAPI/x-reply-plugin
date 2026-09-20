@@ -1,23 +1,29 @@
-# X Reply Plugin
+# X Reply
 
-Chrome side-panel assistant for **X** and **Reddit**. It reads the current post, drafts two editable replies via **BeatAPI Text API**, and fills the one you pick into the reply box:
+Chrome side-panel assistant for **X** and **Reddit**. It reads the current post, drafts two editable replies through an **OpenAI-compatible text API**, and fills the version you pick into the reply box.
 
-- **High-value**: join the discussion only — no product mention, no link
-- **Product promo**: respond first, then naturally mention BeatDesign or BeatAPI with the correct URL
+- **Value-first**: join the discussion — no product mention, no link
+- **Product-link** (optional): respond first, then mention *your* product from a local catalogue
 
-The extension **never** clicks the final Reply / Comment button. Publishing stays with you.
+The extension **never** clicks Reply / Comment. Publishing stays with you.
 
-## Model settings (BeatAPI only)
+## Text provider
+
+Defaults are aimed at [BeatAPI Text](https://docs.beatapi.io) as one compatible provider. Change **base URL**, **model**, and **API key** in settings for any OpenAI-compatible endpoint.
 
 | Field | Default |
 |---|---|
 | Base URL | `https://api.beatapi.io/v1` |
 | Model | `deepseek-v4.1-flash` |
-| API Key | empty — paste your BeatAPI key in the side panel |
+| API key | empty — paste in the side panel |
 
-Catalogue models are listed in settings (DeepSeek / GPT / Claude / Gemini / Grok / Kimi / GLM / Qwen / MiniMax / MiMo). **No API keys are bundled.**
+**No API keys are bundled.**
 
-Product copy lives in [`src/lib/product-catalog.ts`](./src/lib/product-catalog.ts).
+## Product catalogue
+
+Open-source builds ship a single **Example Product** stub in `src/lib/product-catalog.ts`.
+
+For private use, put your real notes in `local/product-catalog.ts` (gitignored). Local builds prefer that file automatically.
 
 ## Install from source
 
@@ -28,31 +34,17 @@ npm install
 npm run build
 ```
 
-Chrome → `chrome://extensions` → Developer mode → **Load unpacked** → `.output/chrome-mv3`.
+Chrome → `chrome://extensions` → Developer mode → **Load unpacked** → `extension-dist` (or `.output/chrome-mv3`).
+
+Prefer `npm run build:ext` to rebuild and sync `extension-dist/`.
 
 ## Usage
 
 1. Open a specific X post or Reddit thread and refresh.
 2. Open the side panel from the extension icon.
-3. Paste your BeatAPI key in settings and pick a model.
-4. Choose BeatDesign or BeatAPI at the top (default BeatDesign).
-5. Generate, edit, then **Fill** — click Reply yourself on the page.
+3. Add your text-API key in settings.
+4. Generate, edit, then **Fill** — click Reply yourself on the page.
 
-## Develop
+## License
 
-```bash
-npm test
-npm run typecheck
-npm run build
-npm run zip
-```
-
-## Privacy
-
-- Model settings stay in local browser storage.
-- Needs page access to read the thread and locate the editor.
-- No bundled cookies, profiles, or auto-publish.
-
-## Brand
-
-Icons use the **BeatAPI** mark. This repo is BeatAPI-owned packaging for overseas agent workflows.
+MIT — see `LICENSE`.

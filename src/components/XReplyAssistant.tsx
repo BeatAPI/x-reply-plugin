@@ -84,7 +84,7 @@ async function fillReply(context: ReplyContext, reply: string): Promise<void> {
 
 function CharacterCount({ context, value }: { context: ReplyContext; value: string }) {
 	if (context.platform === 'reddit') {
-		return <span className={value.length > 900 ? 'font-semibold text-amber-600' : 'text-muted-foreground'}>{value.length} chars</span>
+		return <span className={value.length > 900 ? 'font-semibold text-warning' : 'text-muted-foreground'}>{value.length} chars</span>
 	}
 	const count = xWeightedLength(value)
 	return <span className={count > 280 ? 'font-semibold text-red-600' : 'text-muted-foreground'}>{count}/280</span>
@@ -192,9 +192,9 @@ export function XReplyAssistant({ onOpenSettings }: { onOpenSettings: () => void
 		<header className="signal-grid sticky top-0 z-20 border-b border-border/75 bg-background/95 px-4 pb-4 pt-3 backdrop-blur-xl">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-3">
-					<div className="brand-mark">B</div>
+					<div className="brand-mark"><img src={chrome.runtime.getURL("assets/logo-light.png")} alt="X Reply" /></div>
 					<div>
-						<div className="eyebrow">BEATAPI</div>
+						<div className="eyebrow">X REPLY</div>
 						<h1 className="text-[17px] font-semibold tracking-[-0.025em]">X Growth</h1>
 					</div>
 				</div>
@@ -332,7 +332,7 @@ export function XReplyAssistant({ onOpenSettings }: { onOpenSettings: () => void
 		{pair && context && (
 			<footer className="fixed inset-x-0 bottom-0 z-20 border-t border-border/80 bg-background/95 px-4 py-3 backdrop-blur-xl">
 				{!accountMatch && (
-					<div className="mb-2 flex items-center gap-2 text-[11px] text-amber-700">
+					<div className="mb-2 flex items-center gap-2 text-[11px] text-warning">
 						<ShieldCheck size={13} /> Switch to and confirm {TARGET_X_ACCOUNT} before filling
 					</div>
 				)}

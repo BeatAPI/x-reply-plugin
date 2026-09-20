@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">BeatAPI X Reply icon</title>
+  <desc id="desc">The official BeatAPI logo with a separate X badge layered naturally over its lower-right corner.</desc>
+  <defs>
+    <clipPath id="tile-clip">
+      <rect width="1024" height="1024" rx="188" />
+    </clipPath>
+    <filter id="badge-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.36" />
+    </filter>
+  </defs>
+
+  <g clip-path="url(#tile-clip)">
+    <rect width="1024" height="1024" fill="#0b0e14" />
+
+    <!-- Keep the complete BeatAPI brand mark as the dominant back layer. -->
+    <image
+      x="88"
+      y="62"
+      width="808"
+      height="808"
+      preserveAspectRatio="xMidYMid meet"
+      xlink:href="../../public/logo-dark.png"
+      href="../../public/logo-dark.png"
+    />
+
+    <!-- The X remains a distinct foreground logo rather than a rebuilt hybrid. -->
+    <g filter="url(#badge-shadow)">
+      <circle cx="798" cy="800" r="162" fill="#0b0e14" stroke="#0b0e14" stroke-width="24" />
+      <circle cx="798" cy="800" r="150" fill="#05070b" stroke="#596171" stroke-width="7" />
+      <g transform="translate(719 716) scale(6.62)">
+        <path
+          fill="#ffffff"
+          d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"
+        />
+      </g>
+    </g>
+  </g>
+</svg>
